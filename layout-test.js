@@ -4,6 +4,10 @@ if (Meteor.isClient) {
   Template.helloAside.aside = function() { return Session.get('aside'); }
   
   
+  // XXX: need this helper purely because meteor's handlebars doesn't
+  // support hash arguments to block helpers
+  //
+  // - what about if the block helper has 0 arguments?
   Handlebars.registerHelper('withContent', function(name, options) {
     return {template: name, yields: options.hash};
   });
