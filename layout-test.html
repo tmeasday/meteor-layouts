@@ -1,0 +1,23 @@
+<head>
+  <title>layout-test</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  {{#layout withContent 'standard' aside="helloAside"}}
+    hello: {{helloMessage}}
+  {{/layout}}
+</template>
+
+<template name="standard">
+  layout: {{layoutMessage}} <br/>
+  aside: {{yield 'aside'}} <br/>
+  {{yield}}
+</template>
+
+<template name="helloAside">
+  aside is - {{aside}}
+</template>
